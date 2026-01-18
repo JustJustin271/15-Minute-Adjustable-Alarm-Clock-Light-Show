@@ -1,0 +1,180 @@
+const int btn1 = 2;
+
+const int rled = 3;
+const int yled = 4;
+const int gled = 5;
+const int bled = 6;
+const int gled2 = 7;
+const int yled2 = 8;
+const int rled2 = 9;
+
+const int alarm = 13;
+
+//Duh, ofc you have to tell the Arduino which pins are connected to what? :) 
+//You think the Arduino has eyes?!? Well, I mean, I guess it might be an extension component...but you still have to define it :D 
+
+void setup() {
+  //I'd still be defining those pins :) 
+  pinMode(btn1, INPUT_PULLUP);
+  
+  pinMode(rled, OUTPUT);
+  pinMode(yled, OUTPUT);
+  pinMode(gled, OUTPUT);
+  pinMode(bled, OUTPUT);
+  pinMode(gled2, OUTPUT);
+  pinMode(yled2, OUTPUT);
+  pinMode(rled2, OUTPUT);
+  
+  pinMode(alarm, OUTPUT);
+  
+}
+
+void loop() {
+
+  bool sbtn = digitalRead(btn1);
+
+    if(sbtn == LOW) {
+      //If pressed, the light and sound will turn on and off, arming the alarm clock
+      digitalWrite(rled, HIGH);
+      digitalWrite(alarm, HIGH);
+      delay(50);
+      digitalWrite(rled, LOW);
+      digitalWrite(alarm, LOW);
+      delay(50);
+      digitalWrite(rled, HIGH);
+      digitalWrite(alarm, HIGH);
+      delay(50);
+      digitalWrite(rled, LOW);
+      digitalWrite(alarm, LOW);
+      delay(900000); //15 Minutes, 60000 = 1 minute, 300000 = 5 minutes, 3600000 = 1 Hour :) 
+
+
+      while (true) {
+        digitalWrite(rled2, LOW); //Fancy pattern :) 
+        digitalWrite(rled, HIGH);
+        digitalWrite(alarm, HIGH);
+        delay(500);
+
+        if(digitalRead(btn1) == LOW) { //Constant checks with the if statements :D 
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; //If pressed, the 
+          }
+        
+        digitalWrite(rled, LOW);
+        digitalWrite(yled, HIGH);
+        digitalWrite(alarm, LOW);
+        delay(500);
+
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        
+        digitalWrite(yled, LOW);
+        digitalWrite(gled, HIGH);
+        digitalWrite(alarm, HIGH);
+        delay(500);
+
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        
+        digitalWrite(gled, LOW);
+        digitalWrite(bled, HIGH);
+        digitalWrite(alarm, LOW);
+        delay(500);
+
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        
+        digitalWrite(bled, LOW);
+        digitalWrite(gled2, HIGH);
+        digitalWrite(alarm, HIGH);
+        delay(500);
+
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        
+        digitalWrite(gled2, LOW);
+        digitalWrite(yled2, HIGH);
+        digitalWrite(alarm, LOW);
+        delay(500);
+        
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        digitalWrite(yled2, LOW);
+        digitalWrite(rled2, HIGH);
+        digitalWrite(alarm, HIGH);
+        delay(500);
+        
+        if(digitalRead(btn1) == LOW) {
+
+          digitalWrite(rled, LOW);
+          digitalWrite(yled, LOW);
+          digitalWrite(gled, LOW);
+          digitalWrite(bled, LOW);
+          digitalWrite(gled2, LOW);
+          digitalWrite(yled2, LOW);
+          digitalWrite(alarm, LOW);
+          
+          break; 
+          }
+        }
+      delay(1000); //Hold up...Wait a second :) 
+      }
+    }
